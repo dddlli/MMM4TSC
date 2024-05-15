@@ -1,14 +1,3 @@
-# TSC是分类器，对decoder的需求存疑，可以采用预训练+微调方法
-# 一阶段使用整个UCR数据集进行预训练，二阶段则在特定数据集下进行微调分类
-# 目的是解决UCR单个子数据集的数据稀缺问题
-
-# TSC的第二个问题是数据点缺乏梯度信息，同样的100，上升与下降显然不同
-# 但这个信息如何加到embedding里面也是一个问题
-# 股票市场中有各种加权后的时序图
-
-# 这里为Encoder后直接接入ffn层输出，没有decoder的cross-attention结构
-
-import copy
 import torch
 import torch.nn as nn
 import torch.nn.modules.transformer as trans

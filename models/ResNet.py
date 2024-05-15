@@ -22,26 +22,13 @@ class TSEncoder(nn.Module):
                                          nn.BatchNorm2d(16 * 2),
                                          nn.GELU())
 
-        # self.embed_layer = nn.Sequential(DepthwiseSeparableConv2d(1, 16 * 2, kernel_size=[1, 8], padding=(0, 4)),
-        #                                  nn.BatchNorm2d(16 * 2),
-        #                                  nn.GELU()
-        #                                  )
-
         self.mamba = MMMLayer(input_dim=16 * 2, output_dim=16 * 2)
-
-        # self.embed_layer3 = nn.Sequential(DepthwiseSeparableConv2d(16 * 2, 16 * 8, kernel_size=[1, 8], padding=(0, 4)),
-        #                                   nn.BatchNorm2d(16 * 8),
-        #                                   nn.GELU())
 
         self.embed_layer3 = nn.Sequential(nn.Conv2d(16 * 2, 16 * 4, kernel_size=[1, 8], padding='same'),
                                           nn.BatchNorm2d(16 * 4),
                                           nn.GELU())
 
         self.mamba3 = MMMLayer(input_dim=16 * 4, output_dim=16 * 4)
-
-        # self.embed_layer1 = nn.Sequential(DepthwiseSeparableConv2d(16 * 8, 16 * 4, kernel_size=[1, 8], padding=(0, 4)),
-        #                                   nn.BatchNorm2d(16 * 4),
-        #                                   nn.GELU())
 
         self.embed_layer1 = nn.Sequential(nn.Conv2d(16 * 4, 16 * 2, kernel_size=[1, 8], padding='same'),
                                           nn.BatchNorm2d(16 * 2),

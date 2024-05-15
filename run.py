@@ -1,10 +1,9 @@
 import argparse
-import os
 import torch
 import random
 import numpy as np
 
-from work_process import work_process, multimodal_work_process, vision_work_process
+from work_process import work_process, multimodal_work_process
 
 fix_seed = 2024
 random.seed(fix_seed)
@@ -14,7 +13,7 @@ np.random.seed(fix_seed)
 parser = argparse.ArgumentParser(description='Time series classification')
 
 # basic config
-parser.add_argument('--model', type=str, default='3M4TSC', help='model name, options: [MLP, CNN, Encoder, Mamba, 3M4TSC, VisionMamba]')
+parser.add_argument('--model', type=str, default='3M4TSC', help='model name, options: [CNN, Encoder, 3M4TSC]')
 parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
 
 # data loader
@@ -51,19 +50,13 @@ else:
 
 print(args)
 
-if args.model == 'MLP':
-    work_process(args)
-elif args.model == 'CNN':
+
+if args.model == 'CNN':
     work_process(args)
 elif args.model == 'Encoder':
     work_process(args)
-elif args.model == 'Mamba':
-    work_process(args)
 elif args.model == '3M4TSC':
     multimodal_work_process(args)
-
-elif args.model == 'VisionMamba':
-    vision_work_process(args)
 
 torch.cuda.empty_cache()
 
