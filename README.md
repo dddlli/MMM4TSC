@@ -2,6 +2,10 @@
 Multimodal Mamba Time Series Classification of Fused Images
 ## MMM4TSC architecture
 ![alt text](vision/archi_mmm4tsc.png)
+
+## Data
+The data used in this project comes from the [UCR/UEA archive](http://timeseriesclassification.com/TSC.zip). 
+We used the 128 datasets listed [here](https://www.cs.ucr.edu/%7Eeamonn/time_series_data_2018/).
 ## Usage of the code
 ```python
 --model: to choose the models from [Encoder, CNN, MMM4TSC](default=MMM4TSC)
