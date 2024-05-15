@@ -1,15 +1,7 @@
 import torch
 from torch import nn, Tensor
-# from zeta.nn.modules.mlp import MLP
-# from zeta.nn.modules.rms_norm import RMSNorm
-# from zeta.nn.modules.visual_expert import VisualExpert
-
 from .ts_encoder import TSEncoder
 from .img_encoder import IMG_Encoder, MMMLayer
-from .kan import KANLinear
-
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 class TSMultiModalMamba(nn.Module):
@@ -80,16 +72,6 @@ class TSMultiModalMamba(nn.Module):
         self.ts_encoder = TSEncoder()
         self.img_encoder = IMG_Encoder(encoder_dim=dim)
 
-        # VisualExpert
-        # self.visual_expert = VisualExpert(
-        #     dim, self.hidden_dim, dropout, heads
-        # )
-
-        # MLP
-        # self.mlp = MLP(
-        #     dim, dim, expansion_factor=4, depth=1, norm=True
-        # )
-
         self.mamba1 = nn.Sequential(MMMLayer(input_dim=32, output_dim=32))
 
         self.conv1 = nn.Conv1d(32, 16, kernel_size=3, stride=1, padding=1)
@@ -102,40 +84,19 @@ class TSMultiModalMamba(nn.Module):
         self.pool2 = nn.MaxPool1d(kernel_size=2, stride=2)
         self.silu2 = nn.SiLU()
 
-        # self.head = nn.Linear(8 * (dim // 4), n_classes)
-
-        self.head = KANLinear(8 * (dim // 4), n_classes)
-
+        self.head = nn.Linear(8 * (dim // 4), n_classes)
 
     def forward(self, ts: Tensor, img: Tensor) -> Tensor:
         ts = ts.unsqueeze(1)
-
         encoded_ts = self.ts_encoder(ts)
         encoded_img = self.img_encoder(img)
 
-        # if self.fusion_method == "mlp":
-        #     fusion_layer = self.mlp(encoded_img)
-        #     fused = fusion_layer
-
         if self.fusion_method == "concat":
             fused = torch.concat([encoded_ts, encoded_img], dim=1)
-
-        # if self.fusion_method == "add":
-        #     fused = encoded_img + encoded_ts
-        #
-        # if self.fusion_method == "visual_expert":
-        #     concat = torch.cat([encoded_ts, encoded_img], dim=1)
-        #     fused = self.visual_expert(concat)
-
         x = self.mamba1(fused)
-
         x = self.silu1(self.pool1(self.conv1(x)))
-
         x = self.mamba2(x)
-
         x = self.silu2(self.pool2(self.conv2(x)))
-
-        # 展平特征并应用全连接层
         x = x.view(x.size(0), -1)
         x = self.head(x)
 
