@@ -1,5 +1,5 @@
-# MMM4TSC:Multimodal Mamba Time Series Classification of Fused Images
-Multimodal Mamba Time Series Classification of Fused Images
+# MMM4TSC: Multimodal Mamba-based Time Series Classification with Fusion of Spatial Location Features
+A multimodal time series classification model, MMM4TSC, is presented. By integrating multi-scale multimodal features, the model enhances classification performance and adaptability. Experimental results on all 128 time series datasets from UCR show that MMM4TSC achieves an average accuracy of 84.94\%. Compared to representative methods such as LITETime, InceptionTime, and ROCKET, it exhibits improved average accuracy ranging from 0.12\% to 6.11\%, highlighting its superior adaptability.
 ## MMM4TSC architecture
 ![alt text](vision/archi_mmm4tsc.png)
 
