@@ -44,12 +44,11 @@ elif args.use_gpu and args.gpu_id >= torch.cuda.device_count():
     raise ValueError("Requires an unexisting GPU, check --gpu_id and try again.")
 
 if args.use_gpu:
-    args.device = torch.device('cuda:'+str(args.gpu_id))
+    args.device = torch.device('cuda:' + str(args.gpu_id))
 else:
     args.device = torch.device('cpu')
 
 print(args)
-
 
 if args.model == 'CNN':
     work_process(args)
