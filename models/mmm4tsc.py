@@ -38,7 +38,6 @@ class TSMultiModalMamba(nn.Module):
     )
     out = model(x, y)
     print(out.shape)
-
     """
 
     def __init__(

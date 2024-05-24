@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 from .img_encoder import MMMLayer
 

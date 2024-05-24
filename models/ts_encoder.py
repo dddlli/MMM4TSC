@@ -40,4 +40,3 @@ if __name__ == '__main__':
     model = TSEncoder().to('cuda')
     y = model(x)
     print("LKA parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))
-

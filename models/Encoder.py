@@ -18,11 +18,11 @@ class Encoder(nn.Module):
 
         self.input_size = input_size
 
-    def forward(self, input):
-        if input.size(-1) != self.input_size:
+    def forward(self, x):
+        if x.size(-1) != self.input_size:
             raise RuntimeError("the feature number of input must be equal to input_size")
-        input = self.encoder(input)
-        return self.ffn(input)
+        x = self.encoder(x)
+        return self.ffn(x)
 
 
 if __name__ == '__main__':
