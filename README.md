@@ -19,7 +19,7 @@ The following figure shows the comparison between MMM4TSC and state of the art c
 ![alt text](vision/purppl.svg)
 ### MMM4TSC VS other Models Performance 
 The following figure shows the comparison between MMM4TSC and state of the art complex deep learners. 
-![alt text](vision/performance.svg)
+![alt text](vision/all_performance.svg)
 * Box (Box): The box part of the boxplot contains the middle 50% of the data. The bottom and top of the box are the first quartile (Q1) and the third quartile (Q3), respectively, indicating that 25% of the data lies below the box and another 25% lies above the box.
 
 * Median (Median): The horizontal line inside the box represents the median (Q2) of the data, which is the middle value of the dataset, dividing it into two equal parts.
