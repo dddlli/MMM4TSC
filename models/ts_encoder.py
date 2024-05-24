@@ -39,4 +39,4 @@ if __name__ == '__main__':
     x = torch.randn(4, 1, 570).to('cuda')
     model = TSEncoder().to('cuda')
     y = model(x)
-    print("LKA parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))
+    print("TS_encoder parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))

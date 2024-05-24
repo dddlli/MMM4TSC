@@ -71,5 +71,3 @@ class TSEncoder(nn.Module):
         x = self.head(x)
 
         return x
-
-        return encoded_ts

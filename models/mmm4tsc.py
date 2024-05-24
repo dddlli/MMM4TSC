@@ -7,7 +7,6 @@ from .img_encoder import IMG_Encoder, MMMLayer
 class TSMultiModalMamba(nn.Module):
     """
     TSMultiModalMamba is a PyTorch module that combines text and image embeddings using a multimodal fusion approach.
-
     Args:
         dim (int): The dimension of the embeddings.
         depth (int): The depth of the Mamba block.

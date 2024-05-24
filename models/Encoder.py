@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.modules.transformer as trans
-
 from torch.nn.modules.normalization import LayerNorm
 
 
@@ -29,4 +28,4 @@ if __name__ == '__main__':
     x = torch.randn(4, 1, 570).to('cuda')
     model = Encoder(input_size=570, output_size=4).to('cuda')
     y = model(x)
-    print("LKA parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))
+    print("Encoder parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))

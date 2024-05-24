@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from mamba_ssm import Mamba
@@ -45,12 +46,6 @@ class MambaLayer(nn.Module):
         x_mamba = self.proj(x_mamba)
         out = x_mamba.transpose(-1, -2).reshape(B, self.output_dim, *img_dims)
         return out
-
-
-import torch
-import torch.nn as nn
-
-from mamba_ssm import Mamba
 
 
 class MMMLayer(nn.Module):
@@ -161,7 +156,7 @@ if __name__ == '__main__':
 
     model = IMG_Encoder(encoder_dim=345)
 
-    print("LKA parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))
+    print("Img_Encoder parameters: {}".format(sum(p.numel() for p in model.parameters() if p.requires_grad)))
 
     model = model.to('cuda')
 
