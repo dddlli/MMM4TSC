@@ -16,7 +16,7 @@ We used the 128 datasets listed [here](https://www.cs.ucr.edu/%7Eeamonn/time_ser
 Results can be found in the results.csv file for FCN, ResNet, Inception, InceptionTime, ROCKET, LITE, LITETime and MMM4TSC. For non-ensemble methods, results are averaged over five runs, for ensemble methods, we ensemble the five runs.
 ### Average performance and Params comparison
 The following figure shows the comparison between MMM4TSC and state of the art complex deep learners. The comparison consists on the average performance and the number FLOPS.
-![alt text](vision/purppl.svg)
+![alt text](vision/acc_params.svg)
 ### MMM4TSC VS other Models Performance 
 The following figure shows the comparison between MMM4TSC and state of the art complex deep learners. 
 ![alt text](vision/all_performance.svg)
