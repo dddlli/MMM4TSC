@@ -39,11 +39,6 @@ When comparing the performance of different models, the boxplot can provide the 
 * Performance Range: The length of the whiskers indicates the maximum and minimum values of model performance, helping us understand the range of model performance.
 
 * Outliers: If there are outliers, it may indicate that the model's performance is exceptionally good or exceptionally poor in certain specific situations.
-### MMM4TSC 1v1 with FCN, InceptionTime and ROCKET
-The following compares MMM4TSC with FCN, InceptionTime and ROCKET using the accuracy performance on the test set of the 128 datasts of the UCR archive.
-
-| ![alt text](pic/3M4TSC_FCN.svg) | ![alt text](pic/3M4TSC_InceptionTime.svg) |![alt text](pic/3M4TSC_ROCKET.svg)|
-| --- | --- | --- |
 
 ### MMM4TSC MCM with SOTA
 The following 1v1 and multi-comparison matrix shows the performance of MMM4TSC with respect to the SOTA models for Time Series Classification.
